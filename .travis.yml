@@ -1,18 +1,22 @@
 language: c
 
+dist: 
+    - trusty
+    - xenial
+    - bionic
+
 arch:
-  - amd64
-  - arm64
+    - amd64
+    - arm64
 
 compiler:
-  - gcc
-  - clang
+    - gcc
+#    - clang
 
 
 addons:
     apt:
         - debhelper
-        - autotools-dev
         - quilt
 
         - zlib1g-dev
