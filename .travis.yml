@@ -10,6 +10,13 @@ compiler:
     - gcc
 #    - clang
 
+env:
+  global:
+    - PACKAGE_NAME=allstarlink-asterisk
+
+before_install:
+    - export BUILD_VERSION=$(date "+%Y%m%d").$TRAVIS_BUILD_NUMBER
+    - export PACKAGE_NAME_VERSION=$PACKAGE_NAME.$BUILD_VERSION.deb
 
 addons:
     apt:
@@ -49,9 +56,16 @@ addons:
 install:  skip
 
 script:
-  - autoconf -V
-  - cd $TRAVIS_BUILD_DIR/asterisk
-#  - ./bootstrap.sh
-  - ./configure
-  - debuild -b -uc -us
+    - autoconf -V
+    - cd $TRAVIS_BUILD_DIR/asterisk
+#    - ./bootstrap.sh
+    - ./configure
+#    - debuild -b -uc -us
+    - make
+#   - dpkg-deb --build $PACKAGE_NAME
+#   - mv $PACKAGE_NAME.deb $PACKAGE_NAME_VERSION
 
+#after_success:
+#   - ls -l $PACKAGE_NAME_VERSION
+#   - md5sum $PACKAGE_NAME_VERSION
+#   - dpkg --contents $PACKAGE_NAME_VERSION
