@@ -14,7 +14,7 @@ before_script:
 install: skip
 
 script:
-  - cd src
+  - cd $TRAVIS_BUILD_DIR/asterisk
   - ./bootstrap.sh && ./configure
   - debuild -b -uc -us
 
