@@ -12,7 +12,9 @@ compiler:
 addons:
     apt:
         - debhelper
+        - autotools-dev
         - quilt
+
         - zlib1g-dev
         - libreadline-gplv2-dev
         - libgsm1-dev
@@ -23,8 +25,7 @@ addons:
         - unixodbc-dev
         - libpri-dev
         - libvpb-dev
-        - asl-dahdi-source
-        - autotools-dev
+#        - asl-dahdi-source
         - libnewt-dev
         - libsqlite-dev
         - libspeex-dev
@@ -44,8 +45,6 @@ addons:
         - libusb-dev
 
 install:  skip
-
-install: skip
 
 script:
   - cd $TRAVIS_BUILD_DIR/asterisk
