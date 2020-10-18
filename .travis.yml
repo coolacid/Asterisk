@@ -48,6 +48,7 @@ addons:
 install:  skip
 
 script:
+  - autoconf -V
   - cd $TRAVIS_BUILD_DIR/asterisk
   - ./bootstrap.sh && ./configure
   - debuild -b -uc -us
