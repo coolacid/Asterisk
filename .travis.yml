@@ -1,9 +1,7 @@
 language: c
 
-dist: 
-    - trusty
-    - xenial
-    - bionic
+dist:  xenial
+#    - bionic
 
 arch:
     - amd64
